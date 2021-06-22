@@ -1,8 +1,8 @@
-#Rock The JVM
+# Rock The JVM
 This is my completion of the course "Scala and Functional Programming"
 
-##Files of interest:
-###Part 1 - The Absolute Scala Basics
+## Files of interest:
+### Part 1 - The Absolute Scala Basics
 * CallBy
 * DefaultArgs
 * Expressions
@@ -30,7 +30,7 @@ This is my completion of the course "Scala and Functional Programming"
 * Sequences
 * TuplesAndMaps
 * WhatsAFunction
-###Part 4 - Pattern matching in Scala
+### Part 4 - Pattern matching in Scala
 * AllThePatterns
 * PatternEverywhere
 * PatternMatching
