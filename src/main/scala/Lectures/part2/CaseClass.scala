@@ -24,14 +24,14 @@ object CaseClass extends App{
   val jim3 = jim.copy(age = 45)
   println(jim3)
 
-  // 5. CCs hane companion objects
+  // 5. CCs have companion objects
   val thePerson = Person
   val mary = Person("Mary", 23)
 
   // 6. CCs are serializable
   // Akka
 
-  // 7. CCs have extracor patterns = CCs can be used in PATTERN MATHING
+  // 7. CCs have extractor patterns = CCs can be used in PATTERN MATHING
 
   case object UnitedKingdom {
     def name: String = "The UK of GB and NI"

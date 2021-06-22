@@ -56,7 +56,7 @@ object HOFsAndCurries extends App {
     x => g(f(x))
 
   def superAdder2: (Int => Int => Int) = toCurry(_ + _)
-  def add4 = superAdder2(4)
+  def add4: Int => Int = superAdder2(4)
   println(add4(17))
 
   val simpleAdder = fromCurry(superAdder)

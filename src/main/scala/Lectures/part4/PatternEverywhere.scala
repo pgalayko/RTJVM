@@ -26,7 +26,7 @@ object PatternEverywhere extends App {
   // case classes, :: operators, ...
 
   // big idea #3
-  val tuple (1, 2, 3)
+  val tuple = (1, 2, 3)
   val (a, b, c) = tuple
   // multiple value definitions based on PMs
   // ALL THE POWER

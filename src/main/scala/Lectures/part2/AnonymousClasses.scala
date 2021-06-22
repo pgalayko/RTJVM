@@ -13,10 +13,10 @@ object AnonymousClasses extends App{
     /*
       equivalent with
 
-      class AnonumousClasses$$anon$1 extends Animal {
+      class AnonymousClasses$$anon$1 extends Animal {
     override def eat: Unit = println("ahahahaha")
     }
-    val funnyAnimal: Animal = new AnonumousClasses$$anon$1
+    val funnyAnimal: Animal = new AnonymousClasses$$anon$1
       */
   println(funnyAnimal.getClass)
 
