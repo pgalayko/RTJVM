@@ -27,7 +27,7 @@ object HandlingFailure extends App {
 
   // orElse
   def backupMethod(): String = "A valid result"
-  val failBackTry= Try(unsafeMethod()).orElse(Try(backupMethod()))
+  val failBackTry = Try(unsafeMethod()).orElse(Try(backupMethod()))
   println(failBackTry)
 
   // If you design the API
@@ -62,15 +62,15 @@ object HandlingFailure extends App {
       if (random.nextBoolean()) new Connection
       else throw new RuntimeException("Someone else took the port")
 
-      def getSafeConnection(host: String, port: String): Try[Connection] = Try(getConnection(host, port))
-
+    def getSafeConnection(host: String, port: String): Try[Connection] = Try(getConnection(host, port))
 
     val possibleConnection = HttpService.getSafeConnection(hostname, port)
     val possibleHTML = possibleConnection.flatMap(connection => connection.getSafe("/home"))
     possibleHTML.foreach(renderHTML)
 
     // short
-    HttpService.getSafeConnection(hostname, port)
+    HttpService
+      .getSafeConnection(hostname, port)
       .flatMap(connection => connection.getSafe("/home"))
       .foreach(renderHTML)
 

@@ -24,7 +24,6 @@ object MapFlatMapFilterFor extends App {
   val combinations = numbers.flatMap(n => chars.map(c => "" + c + n)) // ??
   println(combinations)
 
-
   // foreach
   list.foreach(println)
 
@@ -43,6 +42,5 @@ object MapFlatMapFilterFor extends App {
   list.map { x =>
     x * 2
   }
-
 
 }

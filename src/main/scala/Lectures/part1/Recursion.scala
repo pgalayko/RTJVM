@@ -7,9 +7,9 @@ object Recursion extends App {
   def factorial(n: Int): Int = {
     if (n == 0) 1
     else {
-      println("Computing factorial of " + n + " - I first need factorial of " + (n-1))
+      println("Computing factorial of " + n + " - I first need factorial of " + (n - 1))
       val result = n * factorial(n - 1)
-      println("Computing factorial of " + n )
+      println("Computing factorial of " + n)
 
       result
     }
@@ -22,7 +22,7 @@ object Recursion extends App {
       if (x <= 1) accumulator
       else factorialHelper(x - 1, x * accumulator) // Tail recursive = use recursive call as the  LAST expression
 
-      factorialHelper(n, 1)
+    factorialHelper(n, 1)
   }
 
   /*
@@ -41,31 +41,30 @@ object Recursion extends App {
 
   def concatenate(str: String, n: Int, acc: String): String = {
     if (n <= 0) acc
-    else concatenate(str, n-1, str + acc)
+    else concatenate(str, n - 1, str + acc)
   }
   println(concatenate("Hello", 4, ""))
 
-  def isPrime(n: Int):Boolean = {
+  def isPrime(n: Int): Boolean = {
     @tailrec
     def isPrimeTailrec(t: Int, isStillPrime: Boolean): Boolean =
       if (!isStillPrime) false
       else if (t <= 1) true
       else isPrimeTailrec(t - 1, n % t != 0 && isStillPrime)
 
-      isPrimeTailrec(n / 2, true)
+    isPrimeTailrec(n / 2, true)
   }
   println(isPrime(2003))
   println(isPrime(629))
 
-  def fibonacci(n: Int): Int =  {
+  def fibonacci(n: Int): Int = {
     def fiboTailrec(i: Int, last: Int, nextLast: Int): Int =
       if (i >= n) last
       else fiboTailrec(i + 1, last + nextLast, last)
 
-      if (n <= 2) 1
-      else fiboTailrec(2, 1, 1)
+    if (n <= 2) 1
+    else fiboTailrec(2, 1, 1)
 
   }
   println(8)
 }
-

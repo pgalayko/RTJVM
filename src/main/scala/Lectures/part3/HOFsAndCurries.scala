@@ -13,7 +13,7 @@ object HOFsAndCurries extends App {
   // nTimes(f, n. x) = f(f(....(x))) = nTimes(f, n-1, f(x)))
   def nTimes(f: Int => Int, n: Int, x: Int): Int =
     if (n <= 0) x
-    else nTimes(f, n-1, f(x))
+    else nTimes(f, n - 1, f(x))
 
   val plusOne = (x: Int) => x + 1
   println(nTimes(plusOne, 10, 1))
@@ -22,7 +22,7 @@ object HOFsAndCurries extends App {
   // increment10 = ntb(plusOne, 10) = x => plusOne(plusOne...(x))
   def nTimesBetter(f: Int => Int, n: Int): (Int => Int) =
     if (n <= 0) (x: Int) => x
-    else (x: Int) => nTimesBetter(f, n-1)(f(x))
+    else (x: Int) => nTimesBetter(f, n - 1)(f(x))
 
   val plus10 = nTimesBetter(plusOne, 10)
   println(plus10(1))
@@ -42,12 +42,11 @@ object HOFsAndCurries extends App {
   println(standardFormat(Math.PI))
   println(preciseFormat(Math.PI))
 
-
   def toCurry(f: (Int, Int) => Int): (Int => Int => Int) =
     x => y => f(x, y)
 
   def fromCurry(f: Int => Int => Int): (Int, Int) => Int =
-  (x, y) => f(x)(y)
+    (x, y) => f(x)(y)
 
   def compose[A, B, T](f: A => B, g: T => A): T => B =
     x => f(g(x))

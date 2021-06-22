@@ -11,7 +11,7 @@ object PatternMatching extends App {
   val description = x match {
     case 1 => "the ONE"
     case 2 => "double or nothing"
-    case 3 =>  "third time is the charm"
+    case 3 => "third time is the charm"
     case _ => "something else" // WILDCARD
   }
 
@@ -24,8 +24,8 @@ object PatternMatching extends App {
 
   val greeting = bob match {
     case Person(n, a) if a < 21 => s"Hi! My name is $n and I am $a years old and I can't drink in the US"
-    case Person(n, a) => s"Hi! My name is $n and I am $a years old"
-    case _ => "I don't know who I am"
+    case Person(n, a)           => s"Hi! My name is $n and I am $a years old"
+    case _                      => "I don't know who I am"
   }
   println(greeting)
 
@@ -49,7 +49,7 @@ object PatternMatching extends App {
   // match everything
   val isEven = x match {
     case n if n % 2 == 0 => true
-    case _ => false
+    case _               => false
   }
   val isEvenCond = if (x % 2 == 0) true else false
   val isEvenNormal = x % 2 == 0
@@ -59,18 +59,20 @@ object PatternMatching extends App {
   case class Sum(e1: Expr, e2: Expr) extends Expr
   case class Prod(e1: Expr, e2: Expr) extends Expr
 
-  def show(e: Expr): String = e match {
-    case Number(n) => s"$n"
-    case Sum(e1, e2) => show(e1) + " + " + show(e2)
-    case Prod(e1, e2) => {
-      def maybeShowParentheses(exp: Expr) = exp match {
-        case Prod(_, _) => show(exp)
-        case Number(_) => show(exp)
-        case _ => "(" + show(exp) + ")"
+  def show(e: Expr): String =
+    e match {
+      case Number(n)   => s"$n"
+      case Sum(e1, e2) => show(e1) + " + " + show(e2)
+      case Prod(e1, e2) => {
+        def maybeShowParentheses(exp: Expr) =
+          exp match {
+            case Prod(_, _) => show(exp)
+            case Number(_)  => show(exp)
+            case _          => "(" + show(exp) + ")"
+          }
+        maybeShowParentheses(e1) + " * " + maybeShowParentheses(e2)
       }
-      maybeShowParentheses(e1) + " * " + maybeShowParentheses(e2)
     }
-  }
 
   println(show(Sum(Number(2), Number(3))))
   println(show(Sum(Sum(Number(2), Number(3)), Number(4))))

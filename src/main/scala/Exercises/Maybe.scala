@@ -7,7 +7,6 @@ abstract class Maybe[+T] {
   def filter(p: T => Boolean): Maybe[T]
 }
 
-
 case object MaybeNot extends Maybe[Nothing] {
   def map[B](f: Nothing => B): Maybe[B] = MaybeNot
   def flatMap[B](f: Nothing => Maybe[B]): Maybe[B] = MaybeNot

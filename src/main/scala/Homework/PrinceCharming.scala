@@ -1,5 +1,3 @@
 package Homework
 
-class PrinceCharming {
-
-}
+class PrinceCharming {}

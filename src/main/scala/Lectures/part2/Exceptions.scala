@@ -6,7 +6,7 @@ object Exceptions extends App {
 //  println(x.length)
   // this ^^ will crash with a NPE
 
-    // throwing and catching exceptions
+  // throwing and catching exceptions
 
 //  val aWeirdValue: String = throw new NullPointerException
 
@@ -18,18 +18,19 @@ object Exceptions extends App {
     if (withExceptions) throw new RuntimeException("No int 4 u")
     else 42
 
-  val potentialFail = try {
-    // code that might throw
-    getInt(true)
-  } catch {
-    case e: RuntimeException => 43
-  } finally {
-    // code that will get executed NO MATTER WHAT
-    // optional
-    //does not influence the return type of this expressions
-    // ise finally only for side effects
-    println("finally")
-  }
+  val potentialFail =
+    try {
+      // code that might throw
+      getInt(true)
+    } catch {
+      case e: RuntimeException => 43
+    } finally {
+      // code that will get executed NO MATTER WHAT
+      // optional
+      //does not influence the return type of this expressions
+      // ise finally only for side effects
+      println("finally")
+    }
 
   println(potentialFail)
 

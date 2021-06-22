@@ -1,6 +1,6 @@
 package Lectures.part2
 
-object CaseClass extends App{
+object CaseClass extends App {
 
   /*
   equals, hashCode, toString
