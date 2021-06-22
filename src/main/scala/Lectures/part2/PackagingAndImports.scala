@@ -1,6 +1,6 @@
 package Lectures.part2
 
-import Homework.PrinceCharming
+import Exercises.PrinceCharming
 
 object PackagingAndImports extends App {
 

@@ -1,3 +1,3 @@
-package Homework
+package Exercises
 
 class PrinceCharming {}
