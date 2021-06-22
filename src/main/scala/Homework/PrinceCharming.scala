@@ -1,0 +1,5 @@
+package Homework
+
+class PrinceCharming {
+
+}
