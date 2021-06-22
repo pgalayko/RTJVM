@@ -7,15 +7,15 @@ object MethodNotations extends App {
 
     def +(person: Person): String = s"${this.name} is hanging out with ${person.name}"
     def +(nickname: String): Person = new Person(s"$name ($nickname)", favoriteMovie)
-    def unary_! : String = s"$name, what the heck?" // после ! стоит пробел, чтобы компилятор не счёл : частью имени метода
+    def unary_! : String =
+      s"$name, what the heck?" // после ! стоит пробел, чтобы компилятор не счёл : частью имени метода
     def unary_+ : Person = new Person(name, favoriteMovie, age + 1)
     def isAlive: Boolean = true
-    def apply():String = s"Hi, my name is $name and I like $favoriteMovie"
+    def apply(): String = s"Hi, my name is $name and I like $favoriteMovie"
     def apply(n: Int): String = s"$name watched $favoriteMovie $n times"
     def learns(thing: String) = s"$name is leanring $thing"
     def learnsScala = this learns "Scala"
   }
-
 
   val mary = new Person("Mary", "Inception")
   println(mary.likes("Inception"))
@@ -42,7 +42,7 @@ object MethodNotations extends App {
   println(mary())
 
   // Exercises
-println((mary + "the Rockstar")())
+  println((mary + "the Rockstar")())
   println((+mary).age)
   println(mary learnsScala)
   println(mary(10))

@@ -42,7 +42,7 @@ case object Empty extends MyList[Nothing] {
   def map[B](transformer: Nothing => B): MyList[B] = Empty
   def flatMap[B](transformer: Nothing => MyList[B]): MyList[B] = Empty
   def filter(predicate: Nothing => Boolean): MyList[Nothing] = Empty
-  def ++ [B >: Nothing](list: MyList[B]): MyList[B] = list
+  def ++[B >: Nothing](list: MyList[B]): MyList[B] = list
 
   // HOFs
   def foreach(f: Nothing => Unit): Unit = ()
@@ -73,12 +73,12 @@ case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
 
   def map[B](transformer: A => B): MyList[B] =
     new Cons(transformer(h), t.map(transformer))
-/*
+  /*
   [1,2] ++ [3,4,5]
   = new Cons(1, [2] ++ [3,4,5])
   = new Cons(1, new Cons(2, Empty ++ [3,4,5]))
   = mew Cons(1, new Cons(2, new Cons(3, new Cons(4, new Cons(5)))))
- */
+   */
   def ++[B >: A](list: MyList[B]): MyList[B] = new Cons(h, t ++ list)
   /*
   [1,2].flatmap(n => [n, n+1])
@@ -122,7 +122,6 @@ case class Cons[+A](h: A, t: MyList[A]) extends MyList[A] {
 
   }
 }
-
 
 object ListTest extends App {
   val listOfInt: MyList[Int] = new Cons(1, new Cons(2, new Cons(3, Empty)))

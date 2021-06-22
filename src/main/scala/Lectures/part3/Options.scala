@@ -16,7 +16,7 @@ object Options extends App {
   println(result)
 
   // chained methods
-  def backupMethod():String = "A valid result"
+  def backupMethod(): String = "A valid result"
   val chainedResult = Option(unsafeMethod()).orElse(Option(backupMethod()))
 
   // DESIGN unsafe APIs
@@ -24,7 +24,6 @@ object Options extends App {
   def betterBackupMethod(): Option[String] = Some("A valid value")
 
   val betterChainedResult = betterUnsafeMethod() orElse betterBackupMethod()
-
 
   // functions on Options
   println(myFirstOption.isEmpty)
@@ -80,10 +79,14 @@ object Options extends App {
   connectionStatus.foreach(println)
 
   // chained calls
-  config.get("host")
-    .flatMap(host => config.get("port")
-    .flatMap(port => Connection(host, port))
-    .map(connection => connection.connect))
+  config
+    .get("host")
+    .flatMap(host =>
+      config
+        .get("port")
+        .flatMap(port => Connection(host, port))
+        .map(connection => connection.connect)
+    )
     .foreach(println)
 
   // for-comprehensions

@@ -47,5 +47,4 @@ object Generics extends App {
 //  class Car
 //  val newCage = new Cage(new Car) // ----
 
-
 }

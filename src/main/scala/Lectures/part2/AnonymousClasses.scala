@@ -1,23 +1,23 @@
 package Lectures.part2
 
-object AnonymousClasses extends App{
+object AnonymousClasses extends App {
 
   abstract class Animal {
     def eat: Unit
   }
 
-    // anonymous class
+  // anonymous class
   val funnyAnimal: Animal = new Animal {
     override def eat: Unit = println("ahahahaha")
   }
-    /*
+  /*
       equivalent with
 
-      class AnonumousClasses$$anon$1 extends Animal {
+      class AnonymousClasses$$anon$1 extends Animal {
     override def eat: Unit = println("ahahahaha")
     }
-    val funnyAnimal: Animal = new AnonumousClasses$$anon$1
-      */
+    val funnyAnimal: Animal = new AnonymousClasses$$anon$1
+   */
   println(funnyAnimal.getClass)
 
   class Person(name: String) {

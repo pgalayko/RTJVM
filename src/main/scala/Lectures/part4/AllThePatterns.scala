@@ -76,12 +76,11 @@ object AllThePatterns extends App {
 //    case Cons(_, Cons(specialElement, _)) if specialElement % 2 == 0 =>
 //  }
 
-
   val numbers = List(1, 2, 3)
   val numbersMatch = numbers match {
-    case listOfString => "a list of strings"
+    case listOfString             => "a list of strings"
     case listOfNumbers: List[Int] => "a list of numbers"
-    case _ => ""
+    case _                        => ""
   }
 
   println(numbersMatch)
